@@ -1,0 +1,94 @@
+﻿@model Doctor_Appointment.Models.Doctor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Doctor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gender" class="control-label"></label>
+                <select asp-for="gender" class="form-control" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
+                <span asp-validation-for="gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="specialist" class="control-label"></label>
+                <select asp-for="specialist" class="form-control" asp-items="@Html.GetEnumSelectList<Spectialist>()"></select>
+                <span asp-validation-for="specialist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree" class="control-label"></label>
+                <select asp-for="Degree" class="form-control" asp-items="@Html.GetEnumSelectList<MedicalDegree>()" ></select>
+                <span asp-validation-for="Degree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clinic_Location" class="control-label"></label>
+                <input asp-for="Clinic_Location" class="form-control" />
+                <span asp-validation-for="Clinic_Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clinic_PhonNum" class="control-label"></label>
+                <input asp-for="Clinic_PhonNum" class="form-control" />
+                <span asp-validation-for="Clinic_PhonNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationStartTime" class="control-label"></label>
+                <input asp-for="ReservationStartTime" class="form-control" />
+                <span asp-validation-for="ReservationStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationEndTime" class="control-label"></label>
+                <input asp-for="ReservationEndTime" class="form-control" />
+                <span asp-validation-for="ReservationEndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkDays" class="control-label"></label>
+                <select multiple asp-for="WorkDays" class="form-control" asp-items="@Html.GetEnumSelectList<AvalibalDays>()"></select>
+                <span asp-validation-for="WorkDays" class="text-danger"></span>
+
+            </div>
+          @*  <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>*@
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HomeExamination" /> @Html.DisplayNameFor(model => model.HomeExamination)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

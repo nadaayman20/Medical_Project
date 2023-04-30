@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Doctor_Appointment.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.specialist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clinic_Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clinic_PhonNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkDays)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.HomeExamination)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Degree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clinic_Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clinic_PhonNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkDays)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeExamination)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DoctorID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DoctorID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DoctorID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
